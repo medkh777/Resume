@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CV - Mohamed Khlifate</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #0F1B3C;
+      color: #333;
+      padding: 30px 15px;
+    }
+
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+
+    /* ── HEADER ── */
+    .header {
+      background: #0F1B3C;
+      color: #fff;
+      padding: 40px 50px;
+      display: flex;
+      align-items: center;
+      gap: 35px;
+      position: relative;
+    }
+
+    .header::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 4px;
+      background: #00C2CB;
+    }
+
+    .header-photo {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #00C2CB;
+      flex-shrink: 0;
+      background: #1E3A6E;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      color: #00C2CB;
+    }
+
+    .header-info h1 {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .header-info .title {
+      font-size: 14px;
+      color: #00C2CB;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .header-contacts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .header-contacts a,
+    .header-contacts span {
+      color: #94A3B8;
+      font-size: 13px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .header-contacts a:hover { color: #00C2CB; }
+
+    .icon {
+      width: 16px;
+      height: 16px;
+      fill: #00C2CB;
+      flex-shrink: 0;
+    }
+
+    /* ── BODY LAYOUT ── */
+    .body {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+    }
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+      background: #F4F6FA;
+      padding: 35px 25px;
+      border-right: 1px solid #E2E8F0;
+    }
+
+    .sidebar .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #0F1B3C;
+      margin-bottom: 14px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid #00C2CB;
+    }
+
+    .sidebar-section { margin-bottom: 28px; }
+
+    .skill-group { margin-bottom: 14px; }
+
+    .skill-group-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: #0F1B3C;
+      margin-bottom: 6px;
+    }
+
+    .skill-tag {
+      display: inline-block;
+      background: #E8F4FD;
+      color: #0F1B3C;
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin: 2px 2px 2px 0;
+      border-left: 2px solid #00C2CB;
+    }
+
+    .skill-tag.accent {
+      background: #00C2CB;
+      color: #fff;
+      border-left: none;
+    }
+
+    .lang-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      font-size: 13px;
+    }
+
+    .lang-name { color: #334155; font-weight: 600; }
+
+    .lang-level {
+      font-size: 11px;
+      color: #fff;
+      background: #0F1B3C;
+      padding: 2px 8px;
+      border-radius: 10px;
+    }
+
+    .lang-level.native { background: #00C2CB; }
+    .lang-level.fluent { background: #1E3A6E; }
+    .lang-level.basic  { background: #94A3B8; }
+
+    .cert-item {
+      font-size: 12px;
+      color: #334155;
+      margin-bottom: 8px;
+      padding-left: 10px;
+      border-left: 2px solid #00C2CB;
+      line-height: 1.5;
+    }
+
+    /* ── MAIN CONTENT ── */
+    .main {
+      padding: 35px 40px;
+    }
+
+    .section { margin-bottom: 30px; }
+
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #0F1B3C;
+      margin-bottom: 16px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid #00C2CB;
+    }
+
+    /* Experience cards */
+    .exp-card {
+      margin-bottom: 20px;
+      padding: 16px 18px;
+      background: #F8FAFC;
+      border-radius: 8px;
+      border-left: 4px solid #00C2CB;
+      position: relative;
+    }
+
+    .exp-card.gold  { border-left-color: #F0A500; }
+    .exp-card.green { border-left-color: #10B981; }
+    .exp-card.navy  { border-left-color: #1E3A6E; }
+    .exp-card.gray  { border-left-color: #94A3B8; }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 4px;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .exp-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #0F1B3C;
+    }
+
+    .exp-date {
+      font-size: 11px;
+      color: #fff;
+      background: #0F1B3C;
+      padding: 2px 10px;
+      border-radius: 10px;
+      white-space: nowrap;
+    }
+
+    .exp-company {
+      font-size: 12px;
+      color: #00C2CB;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .exp-card ul {
+      padding-left: 16px;
+      margin: 0;
+    }
+
+    .exp-card ul li {
+      font-size: 12px;
+      color: #334155;
+      margin-bottom: 5px;
+      line-height: 1.5;
+    }
+
+    .exp-stack {
+      margin-top: 8px;
+      font-size: 11px;
+      color: #64748B;
+      font-style: italic;
+    }
+
+    .exp-stack strong { color: #00C2CB; }
+
+    /* Project cards */
+    .proj-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .proj-card {
+      background: #F8FAFC;
+      border-radius: 8px;
+      padding: 14px;
+      border-top: 3px solid #00C2CB;
+    }
+
+    .proj-card.gold  { border-top-color: #F0A500; }
+    .proj-card.green { border-top-color: #10B981; }
+    .proj-card.navy  { border-top-color: #1E3A6E; }
+    .proj-card.red   { border-top-color: #EF4444; }
+    .proj-card.purple { border-top-color: #8B5CF6; }
+
+    .proj-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: #0F1B3C;
+      margin-bottom: 5px;
+    }
+
+    .proj-desc {
+      font-size: 11px;
+      color: #334155;
+      line-height: 1.5;
+      margin-bottom: 6px;
+    }
+
+    .proj-tech {
+      font-size: 10px;
+      color: #00C2CB;
+      font-weight: 600;
+    }
+
+    /* Education */
+    .edu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 14px;
+      padding: 14px 16px;
+      background: #F8FAFC;
+      border-radius: 8px;
+      border-left: 4px solid #1E3A6E;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .edu-school {
+      font-size: 13px;
+      font-weight: 700;
+      color: #0F1B3C;
+    }
+
+    .edu-degree {
+      font-size: 12px;
+      color: #334155;
+      margin-top: 3px;
+    }
+
+    .edu-date {
+      font-size: 11px;
+      color: #fff;
+      background: #1E3A6E;
+      padding: 2px 10px;
+      border-radius: 10px;
+      white-space: nowrap;
+      height: fit-content;
+    }
+
+    /* Footer */
+    .footer {
+      background: #0F1B3C;
+      color: #94A3B8;
+      text-align: center;
+      padding: 16px;
+      font-size: 12px;
+    }
+
+    .footer span { color: #00C2CB; }
+
+    @media print {
+      body { background: #fff; padding: 0; }
+      .page { box-shadow: none; border-radius: 0; }
+    }
+
+    @media (max-width: 700px) {
+      .body { grid-template-columns: 1fr; }
+      .sidebar { border-right: none; border-bottom: 1px solid #E2E8F0; }
+      .proj-grid { grid-template-columns: 1fr; }
+      .header { flex-direction: column; text-align: center; padding: 30px 20px; }
+      .header-contacts { justify-content: center; }
+      .main { padding: 25px 20px; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ══════════════ HEADER ══════════════ -->
+  <div class="header">
+    <div class="header-photo">MK</div>
+    <div class="header-info">
+      <h1>Mohamed KHLIFATE</h1>
+      <div class="title">Embedded Systems &amp; AI Engineer &nbsp;|&nbsp; Power Electronics</div>
+      <div class="header-contacts">
+        <span>
+          <svg class="icon" viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.58 1 1 0 01-.25 1.01z"/></svg>
+          +212 6 79 69 92 93
+        </span>
+        <a href="mailto:mohamedkhlifate03@gmail.com">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          mohamedkhlifate03@gmail.com
+        </a>
+        <span>
+          <svg class="icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1112 6.5a2.5 2.5 0 010 5z"/></svg>
+          Casablanca, Morocco
+        </span>
+        <a href="https://linkedin.com/in/mohamedkhlifate" target="_blank">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          linkedin.com/in/mohamedkhlifate
+        </a>
+        <a href="https://github.com/medkh777" target="_blank">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M12 2A10 10 0 002 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z"/></svg>
+          github.com/medkh777
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <!-- ══════════════ SIDEBAR ══════════════ -->
+    <div class="sidebar">
+
+      <!-- Technical Skills -->
+      <div class="sidebar-section">
+        <div class="section-title">Technical Skills</div>
+
+        <div class="skill-group">
+          <div class="skill-group-title">⚡ Embedded Systems</div>
+          <span class="skill-tag accent">ROS2</span>
+          <span class="skill-tag accent">STM32</span>
+          <span class="skill-tag accent">ESP32</span>
+          <span class="skill-tag">RTOS</span>
+          <span class="skill-tag">Embedded C</span>
+          <span class="skill-tag">C++</span>
+          <span class="skill-tag">UART/I2C/SPI</span>
+          <span class="skill-tag">CAN</span>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-title">🔌 Power Electronics</div>
+          <span class="skill-tag accent">DC/DC Converters</span>
+          <span class="skill-tag accent">Inverters</span>
+          <span class="skill-tag">MOSFET/IGBT</span>
+          <span class="skill-tag">PCB Design</span>
+          <span class="skill-tag">Altium Designer</span>
+          <span class="skill-tag">LTspice</span>
+          <span class="skill-tag">PSIM</span>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-title">🤖 AI &amp; Robotics</div>
+          <span class="skill-tag accent">Edge AI</span>
+          <span class="skill-tag accent">TensorFlow Lite</span>
+          <span class="skill-tag">PyTorch</span>
+          <span class="skill-tag">Deep Learning</span>
+          <span class="skill-tag">EKF / SLAM</span>
+          <span class="skill-tag">LiDAR</span>
+          <span class="skill-tag">Gazebo / RVIZ</span>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-title">🔧 Hardware Design</div>
+          <span class="skill-tag">FPGA / VHDL</span>
+          <span class="skill-tag">ASIC / RTL</span>
+          <span class="skill-tag">Quartus</span>
+          <span class="skill-tag">ModelSim</span>
+          <span class="skill-tag">Cadence Orcad</span>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-title">💻 Software &amp; Tools</div>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">MATLAB/Simulink</span>
+          <span class="skill-tag">Linux / Ubuntu</span>
+          <span class="skill-tag">n8n Automation</span>
+          <span class="skill-tag">Docker</span>
+          <span class="skill-tag">Git / GitHub</span>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-title">🚗 Automotive</div>
+          <span class="skill-tag">AUTOSAR</span>
+          <span class="skill-tag">ADAS</span>
+          <span class="skill-tag">ISO 26262</span>
+          <span class="skill-tag">Functional Safety</span>
+        </div>
+      </div>
+
+      <!-- Languages -->
+      <div class="sidebar-section">
+        <div class="section-title">Languages</div>
+        <div class="lang-item">
+          <span class="lang-name">Arabic</span>
+          <span class="lang-level native">Native</span>
+        </div>
+        <div class="lang-item">
+          <span class="lang-name">French</span>
+          <span class="lang-level fluent">Fluent</span>
+        </div>
+        <div class="lang-item">
+          <span class="lang-name">English</span>
+          <span class="lang-level fluent">Fluent</span>
+        </div>
+        <div class="lang-item">
+          <span class="lang-name">Spanish</span>
+          <span class="lang-level basic">Basic</span>
+        </div>
+      </div>
+
+      <!-- Certifications -->
+      <div class="sidebar-section">
+        <div class="section-title">Certifications</div>
+        <div class="cert-item">Master Class — Data Science &amp; Python A-Z for ML (Udemy)</div>
+        <div class="cert-item">Brain Computer Interface with Deep Learning (Udemy)</div>
+        <div class="cert-item">Real-Time Embedded Systems Theory &amp; Analysis (Coursera)</div>
+        <div class="cert-item">AI Agents for Everyone &amp; AI Bootcamp — 100 Hands-on Labs</div>
+      </div>
+
+      <!-- Interests -->
+      <div class="sidebar-section">
+        <div class="section-title">Interests</div>
+        <span class="skill-tag">Chess ♟️</span>
+        <span class="skill-tag">Programming</span>
+        <span class="skill-tag">Football ⚽</span>
+        <span class="skill-tag">Debates</span>
+      </div>
+
+    </div>
+
+    <!-- ══════════════ MAIN ══════════════ -->
+    <div class="main">
+
+      <!-- About -->
+      <div class="section">
+        <div class="section-title">Profile</div>
+        <p style="font-size:13px; color:#334155; line-height:1.7;">
+          Embedded Systems &amp; AI Engineer currently working across two industrial environments —
+          developing autonomous robotic platforms at <strong>OCP Group</strong> using ROS2 and Edge AI,
+          and designing power electronic systems with embedded control at <strong>KAFEB MAROC</strong>.
+          Passionate about bridging hardware intelligence with software autonomy.
+          Open to relocation for opportunities in Embedded AI, FPGA/ASIC, Power Electronics, or Robotics.
+        </p>
+      </div>
+
+      <!-- Experience -->
+      <div class="section">
+        <div class="section-title">Professional Experience</div>
+
+        <div class="exp-card green">
+          <div class="exp-header">
+            <div class="exp-title">Power Electronics &amp; Embedded Engineer</div>
+            <div class="exp-date">Feb 2026 – Present</div>
+          </div>
+          <div class="exp-company">KAFEB MAROC — Internship · Casablanca, Morocco</div>
+          <ul>
+            <li>Designed and developed a three-phase battery charger (127V / 60A) — power component sizing, AC/DC rectification, thyristors, diodes, LC filters, CC/CV control and experimental validation</li>
+            <li>ISO 9001 certification pilot — established SMQ, wrote procedures, managed design-to-manufacturing process with full quality responsibility</li>
+          </ul>
+          <div class="exp-stack"><strong>Stack:</strong> Power Electronics · PCB Design · STM32 · MATLAB/Simulink · LTspice · ISO 9001</div>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-header">
+            <div class="exp-title">Embedded Developer (AI &amp; Robotics)</div>
+            <div class="exp-date">Jul – Sep 2025</div>
+          </div>
+          <div class="exp-company">OCP Group Benguérir — Internship · Morocco</div>
+          <ul>
+            <li>Engineered embedded software for Komatsu 730E autonomous haul truck (186 tons) using StateX III brain architecture — reduced manual intervention by ~35%</li>
+            <li>Deployed ROS2-based perception &amp; navigation stack integrating LiDAR and camera sensors for real-time obstacle detection in mining environment</li>
+            <li>Implemented Extended Kalman Filter (EKF) for sensor fusion — odometry + IMU + GPS — achieving precise robot pose estimation</li>
+            <li>Designed and tuned discrete PI speed controller in MATLAB/Simulink (Kp=2,300,000 — Ti=12.74s) for 230,000 kg vehicle</li>
+          </ul>
+          <div class="exp-stack"><strong>Stack:</strong> ROS2 · C/C++ · Python · MATLAB/Simulink · Gazebo · RVIZ · EKF · LiDAR · URDF · StateX III</div>
+        </div>
+
+        <div class="exp-card gold">
+          <div class="exp-header">
+            <div class="exp-title">3D Deep Learning Engineer</div>
+            <div class="exp-date">4 months</div>
+          </div>
+          <div class="exp-company">3D Smart Factory — Internship</div>
+          <ul>
+            <li>Developed unsupervised 3D Deep Learning model using PointNet++ (PyTorch) for anomaly detection on point clouds — Chamfer Distance as loss function</li>
+            <li>Built complete ML pipeline: preprocessing, normalization, sampling, training, evaluation with ROC/AUC, F1-score metrics</li>
+          </ul>
+          <div class="exp-stack"><strong>Stack:</strong> PyTorch · PointNet++ · Python · ROC/AUC · Deep Learning</div>
+        </div>
+
+        <div class="exp-card gray">
+          <div class="exp-header">
+            <div class="exp-title">Automotive Embedded Systems Observer</div>
+            <div class="exp-date">4 weeks</div>
+          </div>
+          <div class="exp-company">Renault M-Automotiv — Observation Stage</div>
+          <ul>
+            <li>Discovered ADAS systems and embedded automotive architectures</li>
+            <li>Introduction to AUTOSAR (BSW, RTE, CAN communication)</li>
+          </ul>
+          <div class="exp-stack"><strong>Stack:</strong> AUTOSAR · ADAS · CAN · BSW · RTE</div>
+        </div>
+
+      </div>
+
+      <!-- Projects -->
+      <div class="section">
+        <div class="section-title">Key Projects</div>
+        <div class="proj-grid">
+
+          <div class="proj-card">
+            <div class="proj-title">🚛 Autonomous Komatsu 730E Navigation</div>
+            <div class="proj-desc">Full autonomous navigation stack for 186-ton mining truck. EKF sensor fusion, ROS2 Nav Stack, PI speed controller.</div>
+            <div class="proj-tech">ROS2 · EKF · LiDAR · Gazebo · MATLAB/Simulink · StateX III</div>
+          </div>
+
+          <div class="proj-card gold">
+            <div class="proj-title">🔌 Three-Phase Battery Charger 127V/60A</div>
+            <div class="proj-desc">Industrial power charger design — AC/DC rectification, thyristors, LC filters, CC/CV embedded control.</div>
+            <div class="proj-tech">Power Electronics · STM32 · PCB · LTspice · ISO 9001</div>
+          </div>
+
+          <div class="proj-card green">
+            <div class="proj-title">🤖 3D Anomaly Detection — PointNet++</div>
+            <div class="proj-desc">Unsupervised Deep Learning model on 3D point clouds for industrial anomaly detection using Chamfer Distance.</div>
+            <div class="proj-tech">PyTorch · PointNet++ · Python · ROC/AUC</div>
+          </div>
+
+          <div class="proj-card navy">
+            <div class="proj-title">🏎️ Autonomous Mobile Robot — ESP32</div>
+            <div class="proj-desc">Mobile platform with ESP32, dual DC motors, H-bridge driver for differential drive autonomous navigation.</div>
+            <div class="proj-tech">ESP32 · C++ · Motor Control · Embedded</div>
+          </div>
+
+          <div class="proj-card red">
+            <div class="proj-title">⚡ CPU Design with VHDL</div>
+            <div class="proj-desc">Design and implementation of a general-purpose processor using VHDL on FPGA platform.</div>
+            <div class="proj-tech">VHDL · FPGA · Quartus · ModelSim</div>
+          </div>
+
+          <div class="proj-card purple">
+            <div class="proj-title">🔍 Line Following Robot — FPGA</div>
+            <div class="proj-desc">Line follower robot designed and implemented using a programmed FPGA with VHDL.</div>
+            <div class="proj-tech">FPGA · VHDL · Embedded Control</div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Education -->
+      <div class="section">
+        <div class="section-title">Education</div>
+
+        <div class="edu-item">
+          <div>
+            <div class="edu-school">ENSA Tanger — École Nationale des Sciences Appliquées</div>
+            <div class="edu-degree">Engineering Degree — Génie des Systèmes Électroniques et Automatiques</div>
+          </div>
+          <div class="edu-date">2023 – 2027</div>
+        </div>
+
+        <div class="edu-item">
+          <div>
+            <div class="edu-school">ENSA Tanger</div>
+            <div class="edu-degree">Cycle Préparatoire Intégré</div>
+          </div>
+          <div class="edu-date">2021 – 2023</div>
+        </div>
+
+        <div class="edu-item">
+          <div>
+            <div class="edu-school">Lycée Sanaa — Casablanca</div>
+            <div class="edu-degree">Baccalauréat International — Sciences Physiques et Chimiques</div>
+          </div>
+          <div class="edu-date">2021</div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════ FOOTER ══════════════ -->
+  <div class="footer">
+    <span>Mohamed Khlifate</span> &nbsp;·&nbsp;
+    Embedded Systems &amp; AI Engineer &nbsp;·&nbsp;
+    <span>mohamedkhlifate03@gmail.com</span> &nbsp;·&nbsp;
+    <span>github.com/medkh777</span> &nbsp;·&nbsp;
+    Casablanca, Morocco
+  </div>
+
+</div>
+</body>
+</html>
